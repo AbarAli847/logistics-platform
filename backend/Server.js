@@ -1,18 +1,18 @@
+require('dotenv').config();
+// const express = require('express')
+const {app} = require('./src/app');
 
-const express = require('express')
-const app = express();
+// app.use(express.json())
 
-app.use(express.json())
+// app.get('/health',(req,res)=>{
+//    res.status(200).json({
+//     status: 'ok',
+//     message: 'Backend server is running '
+//    })
+// })
 
-app.get('/health',(req,res)=>{
-   res.status(200).json({
-    status: 'ok',
-    message: 'Backend server is running '
-   })
-})
-
-const PORT = 5000;
+const PORT = process.env.PORT ||5000;
 
 app.listen(PORT,()=>{
-    console.log(`Server running on http://localhost:${PORT}`)
+    console.log(`Server running on ${PORT}`)
 })
