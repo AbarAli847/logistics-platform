@@ -1,8 +1,12 @@
 const express = require('express');
-// const { testApi } = require('../controllers/test.controller');
-
 const router = express.Router();
 
-// router.get('/', testApi);
+ 
+router.get('/', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'Test API working'
+  });
+});
 
 module.exports = router;

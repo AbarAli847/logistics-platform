@@ -1,16 +1,9 @@
-const express = require('express')
-const testRoutes = require('./test.routes')
-
+const express = require('express');
 const router = express.Router();
 
-router.get('/', (req,res)=>{
-    res.status(200),json({
-        status: 'ok',
-        success: 'true',
-        messsage: 'srever is healthy'
-    })
+const testRoutes = require('./test.routes');
 
-})
-router.use('/test',testRoutes)
+ 
+router.use('/test', testRoutes);
 
-module.exports = router
+module.exports = router;
