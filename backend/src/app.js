@@ -6,20 +6,20 @@ const routes = require('./routes');
 
 const app = express();
 
-app.use(express.json());
-app.use('/api',routes)
+// Middlewares
 app.use(cors());
 app.use(morgan('dev'));
+app.use(express.json());
 
- 
+// Routes
+app.use('/api', routes);
+
+// Health check
 app.get('/health', (req, res) => {
   res.status(200).json({
     success: true,
     message: 'Backend server is running'
   });
 });
-
- 
-app.use('/api/v1', routes);
 
 module.exports = app;
